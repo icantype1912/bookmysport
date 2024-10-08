@@ -1,10 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import { NavBar } from './Components/Navbar';
+import { Route,BrowserRouter,Routes,Navigate } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <h1 className='text-red-500'>HELLO</h1>
+    <div className='page'>
+      <BrowserRouter>
+        <NavBar/>
+        
+      </BrowserRouter>
     </div>
   );
 }
