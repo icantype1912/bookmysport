@@ -10,27 +10,27 @@ export const NavBar = (props) => {
   return (
     <div className="Navlink">
       <div className="mt-3">
-        <h1 className="text-black text-2xl ml-3">BookMySport</h1>
+        <h1 className="nav-gradient text-purple text-2xl ml-3">Athletix</h1>
       </div>
       <div className="mt-3 mr-3">
         {user === null ? (
           <Button
             onClick={() => {
             }}
-            sx={{ color: "#001219", textTransform: "none" }}
+            sx={{ color: "#ffffff", textTransform: "none",borderColor:"#ffffff" }}
           >
             Login
           </Button>
         ) : (
           <Button
             onClick={onLogout}
-            sx={{ color: "#001219", textTransform: "none" }}
+            sx={{ color: "#ffffff", textTransform: "none",borderColor:"#ffffff"}}
           >Logout</Button>
         )}
         <Button
           onClick={() => {
           }}
-          sx={{ color: "#001219", textTransform: "none" }}
+          sx={{ color: "#ffffff", textTransform: "none",borderColor:"#ffffff"}}
         >
           About us
         </Button>
