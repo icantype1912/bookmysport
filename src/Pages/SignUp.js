@@ -2,17 +2,35 @@ import React from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div className="Login">
-      <div className="Login-Box flex flex-col justify-start">
+      <div className="SignUp-Box flex flex-col justify-start">
         <div className="flex flex-row justify-center">
-          <h1 className="text-white text-2xl">Login</h1>
+          <h1 className="text-white text-2xl">Sign Up</h1>
         </div>
-        <div className="flex flex-col p-8 gap-5 mt-4">
+        <div className="flex flex-col p-4 gap-5 mt-2">
+          <TextField
+            label="Email"
+            variant="outlined"
+            size="small"
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "lightgray", // Default label color
+                "&.Mui-focused": { color: "white" }, // Label color on focus
+              },
+              "& .MuiOutlinedInput-root": {
+                color: "white", // Input text color
+                "& fieldset": { borderColor: "white" }, // Default border color
+                "&:hover fieldset": { borderColor: "white" }, // Border color on hover
+                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
+              },
+            }}
+          />
           <TextField
             label="Username"
             variant="outlined"
+            size="small"
             sx={{
               "& .MuiInputLabel-root": {
                 color: "lightgray", // Default label color
@@ -29,6 +47,25 @@ const Login = () => {
           <TextField
             label="Password"
             type="password"
+            size="small"
+            variant="outlined"
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "lightgray",
+                "&.Mui-focused": { color: "white" },
+              }, // Label color
+              "& .MuiOutlinedInput-root": {
+                color: "white", // Input text color
+                "& fieldset": { borderColor: "white" }, // Default border color
+                "&:hover fieldset": { borderColor: "white" }, // Border color on hover
+                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
+              },
+            }}
+          />
+          <TextField
+            label="Confirm Password"
+            type="password"
+            size="small"
             variant="outlined"
             sx={{
               "& .MuiInputLabel-root": {
@@ -51,18 +88,18 @@ const Login = () => {
               color: "#ffffff",
               textTransform: "none",
               borderColor: "#ffffff",
-              background: "linear-gradient(45deg,#fd3c98 ,#6829e5)", // Gradient background
+              background: "linear-gradient(45deg,#ff7a18, #af002d)", // Gradient background
               backgroundColor: "transparent", // Make sure the background is transparent
               border: "none", // Optional: removes border if needed
               "&:hover": {
-                background: "linear-gradient(45deg, #6829e5,#fd3c98)", // Adjust gradient on hover
+                background: "linear-gradient(45deg, #af002d, #ff7a18)", // Adjust gradient on hover
                 opacity: 0.9,
               },
             }}
             size="large"
             variant="contained"
           >
-            Login
+            Sign Up
           </Button>
         </div>
       </div>
@@ -70,4 +107,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

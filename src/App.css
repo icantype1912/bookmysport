@@ -43,7 +43,7 @@
   height: 90%;
   background-color: #121212;
   width: 100%;
-  padding: 2%;
+  padding: 1%;
   display: flex;
   justify-content: center;
 }
@@ -57,6 +57,17 @@
   box-shadow: 
     -1px -1px 2px #fd3c98, 
     1px 1px 2px #6829e5;   
+}
+
+.SignUp-Box{
+  margin-top: 1%;
+  height: 90%;
+  padding: 2%;
+  width: 60%;
+  border-style: solid;
+  box-shadow: 
+    -1px -1px 2px #ff7a18, 
+    1px 1px 2px  #af002d; 
 }
 
 .Landing{
