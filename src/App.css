@@ -129,7 +129,8 @@
 }
 
 .sport:hover {
-  flex-grow: 1.5; /* Grow the item when hovered */
+  flex-grow: 1.5;
+  cursor: pointer; /* Grow the item when hovered */
 }
 
 .sport::before {
