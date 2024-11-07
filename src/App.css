@@ -108,29 +108,56 @@
 
 .search-bar{
   height: 10%;
-  border-style: solid;
-  border-color: #6829e5;
-  border-width: 1px;
 }
 
 .sport-selector{
-  height: 85%;
+  height: 90%;
   width: 100%;
   border-style: solid;
-  border-color: #6829e5;
-  border-width: 1px;
+  border-width: 0.5px;
 }
 
 .sport {
   flex-grow: 1;
   flex-basis: 0; /* Ensures all items start with the same size */
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: #319197;
-  transition: flex-grow 0.3s; /* Smooth transition for the hover effect */
+  transition: flex-grow 0.3s ease; /* Smooth transition for the hover effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative; /* Ensure content stays in the correct stacking order */
 }
 
 .sport:hover {
-  flex-grow: 1.5;
+  flex-grow: 1.5; /* Grow the item when hovered */
 }
+
+.sport::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  transition: opacity 0.5s ease; /* Smooth transition */
+  z-index: 1; /* Overlay sits above background, below text */
+}
+
+.sport:hover::before {
+  opacity: 0; /* Fade the overlay on hover */
+}
+
+.sport h1 {
+  position: relative;
+  z-index: 2; /* Ensures text stays above the overlay */
+  color: white;
+  font-size: 1rem; /* Adjust text size as needed */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.sport:hover h1{
+  opacity: 0;
+}
+
 
