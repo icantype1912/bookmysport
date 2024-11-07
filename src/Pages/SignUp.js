@@ -1,6 +1,7 @@
 import React from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
+import { useNavigate,Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -81,7 +82,8 @@ const SignUp = () => {
             }}
           />
           <div className="flex justify-center">
-            <h1 className="text-white">Don't have an account? SignUp</h1>
+            <h1 className="text-white">Already registered?</h1>
+            <Link to = "/Login" className="underline ml-2 text-white">Login</Link>
           </div>
           <Button
             sx={{

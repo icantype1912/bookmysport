@@ -1,8 +1,22 @@
 import React from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
+import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [fields, setFields] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFields((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
   return (
     <div className="Login">
       <div className="Login-Box flex flex-col justify-start">
@@ -13,6 +27,8 @@ const Login = () => {
           <TextField
             label="Username"
             variant="outlined"
+            onChange={handleChange}
+            value={fields.email}
             sx={{
               "& .MuiInputLabel-root": {
                 color: "lightgray", // Default label color
@@ -30,6 +46,8 @@ const Login = () => {
             label="Password"
             type="password"
             variant="outlined"
+            onChange={handleChange}
+            value={fields.password}
             sx={{
               "& .MuiInputLabel-root": {
                 color: "lightgray",
@@ -44,7 +62,10 @@ const Login = () => {
             }}
           />
           <div className="flex justify-center">
-            <h1 className="text-white">Don't have an account? SignUp</h1>
+            <h1 className="text-white">Don't have an account?</h1>
+            <Link className="underline ml-2 text-white" to={"/signup"}>
+              SignUp
+            </Link>
           </div>
           <Button
             sx={{

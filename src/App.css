@@ -27,7 +27,6 @@
   color: white;
 }
 
-
 .Navlink {
   background-color: #121212;
   height: 10%;
@@ -35,11 +34,11 @@
   justify-content: space-between;
 }
 
-.page{
+.page {
   height: 100vh;
 }
 
-.Login{
+.Login {
   height: 90%;
   background-color: #121212;
   width: 100%;
@@ -48,61 +47,90 @@
   justify-content: center;
 }
 
-.Login-Box{
-  margin-top: 1%;
-  height: 88%;
+.Login-Box {
+  margin-top: 3%;
+  height: 82%;
   padding: 2%;
   width: 60%;
   border-style: solid;
-  box-shadow: 
-    -1px -1px 2px #fd3c98, 
-    1px 1px 2px #6829e5;   
+  box-shadow: -1px -1px 2px #fd3c98, 1px 1px 2px #6829e5;
 }
 
-.SignUp-Box{
+.SignUp-Box {
   margin-top: 1%;
   height: 90%;
   padding: 2%;
   width: 60%;
   border-style: solid;
-  box-shadow: 
-    -1px -1px 2px #ff7a18, 
-    1px 1px 2px  #af002d; 
+  box-shadow: -1px -1px 2px #ff7a18, 1px 1px 2px #af002d;
 }
 
-.Landing{
+.Landing {
   height: 90%;
   background-color: #121212;
   width: 100%;
   display: flex;
   flex-direction: column;
-  }
+}
 
-  .Landing-Texts{
-    display: flex;
-    flex-direction: column;
-    margin-left: 3%;
-    margin-top: 6%;
-    
-  }
+.Landing-Texts {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-top: 6%;
+}
 
-  .Landing-Buttons{
-    display: flex;
-    flex-direction: row;
-    margin-left: 3%;
-    margin-top: 1%;
-    gap: 4px  ;
-  }
+.Landing-Buttons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 3%;
+  margin-top: 1%;
+  gap: 4px;
+}
 
-  .gradient {
-    background: linear-gradient(90deg,#ff7a18, #af002d,#fd3c98, #319197);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
+.gradient {
+  background: linear-gradient(90deg, #ff7a18, #af002d, #fd3c98, #319197);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-  .nav-gradient{
-    background: linear-gradient(90deg, #6829e5, #fd3c98);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-  
+.nav-gradient {
+  background: linear-gradient(90deg, #6829e5, #fd3c98);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.main {
+  height: 90%;
+  background-color: #121212;
+  width: 100%;
+}
+
+.search-bar{
+  height: 10%;
+  border-style: solid;
+  border-color: #6829e5;
+  border-width: 1px;
+}
+
+.sport-selector{
+  height: 85%;
+  width: 100%;
+  border-style: solid;
+  border-color: #6829e5;
+  border-width: 1px;
+}
+
+.sport {
+  flex-grow: 1;
+  flex-basis: 0; /* Ensures all items start with the same size */
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #319197;
+  transition: flex-grow 0.3s; /* Smooth transition for the hover effect */
+}
+
+.sport:hover {
+  flex-grow: 1.5;
+}
+
