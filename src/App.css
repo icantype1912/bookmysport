@@ -168,3 +168,29 @@
   padding: 1%;
 }
 
+.confirm{
+  height: 90%;
+  background-color: #121212;
+  width: 100%;
+  padding: 1%;
+}
+
+.con-table{
+  margin-top: 3%;
+  height: 80%;
+  width: 40%;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+  padding: 5%;
+}
+
+.profile{
+  height: 90%;
+  background-color: #121212;
+  width: 100%;
+  padding: 1%;
+}
+
+
+

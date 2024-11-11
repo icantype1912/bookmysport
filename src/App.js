@@ -8,6 +8,8 @@ import SignUp from './Pages/SignUp';
 import Main from './Pages/Main';
 import Booking from './Pages/Booking';
 import AboutUs from './Pages/AboutUs';
+import Confirmation from './Pages/Confirmation';
+import Profile from './Pages/Profile';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path='/main' element = {<Main/>}></Route>
           <Route path='/booking' element = {<Booking/>}></Route>
           <Route path='/aboutus' element = {<AboutUs/>}></Route>
+          <Route path='/confirm' element = {<Confirmation/>}></Route>
+          <Route path='/profile' element = {<Profile/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

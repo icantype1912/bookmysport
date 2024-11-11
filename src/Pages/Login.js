@@ -1,15 +1,16 @@
-import React from "react";
-import { TextField } from "@mui/material";
-import { Button } from "@mui/material";
+import React, { useState } from "react";
+import { TextField, Button } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
   const [fields, setFields] = useState({
-    email: "",
+    username: "",
     password: "",
   });
+  const [error, setError] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFields((prev) => ({
@@ -17,6 +18,17 @@ const Login = () => {
       [name]: value,
     }));
   };
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/user/login', fields);
+      localStorage.setItem('token', response.data.token);
+      navigate('/main');
+    } catch (error) {
+      setError(error.response?.data?.error || 'Login failed');
+    }
+  };
+
   return (
     <div className="Login">
       <div className="Login-Box flex flex-col justify-start">
@@ -24,11 +36,13 @@ const Login = () => {
           <h1 className="text-white text-2xl">Login</h1>
         </div>
         <div className="flex flex-col p-8 gap-5 mt-4">
+          {error && <p className="text-red-500">{error}</p>}
           <TextField
             label="Username"
             variant="outlined"
+            name="username"
             onChange={handleChange}
-            value={fields.email}
+            value={fields.username}
             sx={{
               "& .MuiInputLabel-root": {
                 color: "lightgray", // Default label color
@@ -45,6 +59,7 @@ const Login = () => {
           <TextField
             label="Password"
             type="password"
+            name="password"
             variant="outlined"
             onChange={handleChange}
             value={fields.password}
@@ -52,7 +67,7 @@ const Login = () => {
               "& .MuiInputLabel-root": {
                 color: "lightgray",
                 "&.Mui-focused": { color: "white" },
-              }, // Label color
+              },
               "& .MuiOutlinedInput-root": {
                 color: "white", // Input text color
                 "& fieldset": { borderColor: "white" }, // Default border color
@@ -72,16 +87,17 @@ const Login = () => {
               color: "#ffffff",
               textTransform: "none",
               borderColor: "#ffffff",
-              background: "linear-gradient(45deg,#fd3c98 ,#6829e5)", // Gradient background
-              backgroundColor: "transparent", // Make sure the background is transparent
-              border: "none", // Optional: removes border if needed
+              background: "linear-gradient(45deg,#fd3c98 ,#6829e5)",
+              backgroundColor: "transparent",
+              border: "none",
               "&:hover": {
-                background: "linear-gradient(45deg, #6829e5,#fd3c98)", // Adjust gradient on hover
+                background: "linear-gradient(45deg, #6829e5,#fd3c98)",
                 opacity: 0.9,
               },
             }}
             size="large"
             variant="contained"
+            onClick={handleLogin}
           >
             Login
           </Button>
