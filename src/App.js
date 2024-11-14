@@ -10,6 +10,7 @@ import Booking from './Pages/Booking';
 import AboutUs from './Pages/AboutUs';
 import Confirmation from './Pages/Confirmation';
 import Profile from './Pages/Profile';
+import AdminMain from './Pages/AdminMain';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/aboutus' element = {<AboutUs/>}></Route>
           <Route path='/confirm' element = {<Confirmation/>}></Route>
           <Route path='/profile' element = {<Profile/>}></Route>
+          <Route path='/adminMain' element = {<AdminMain/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

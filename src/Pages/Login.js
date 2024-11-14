@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
+import {jwtDecode} from "jwt-decode";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,11 +22,27 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/user/login', fields);
-      localStorage.setItem('token', response.data.token);
-      navigate('/main');
+      const response = await axios.post("http://localhost:3000/user/login", fields);
+
+      // Extract and store token
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+
+      // Decode token to get user info
+      const decodedToken = jwtDecode(token);
+      const { id: userId, role } = decodedToken;
+
+      // Store userId in localStorage
+      localStorage.setItem("userId", fields.username);
+
+      // Redirect based on user role
+      if (role === "admin") {
+        navigate("/adminMain", { state: { userId, role } });
+      } else {
+        navigate("/main", { state: { userId, role } });
+      }
     } catch (error) {
-      setError(error.response?.data?.error || 'Login failed');
+      setError(error.response?.data?.error || "Login failed");
     }
   };
 
@@ -45,14 +62,14 @@ const Login = () => {
             value={fields.username}
             sx={{
               "& .MuiInputLabel-root": {
-                color: "lightgray", // Default label color
-                "&.Mui-focused": { color: "white" }, // Label color on focus
+                color: "lightgray",
+                "&.Mui-focused": { color: "white" },
               },
               "& .MuiOutlinedInput-root": {
-                color: "white", // Input text color
-                "& fieldset": { borderColor: "white" }, // Default border color
-                "&:hover fieldset": { borderColor: "white" }, // Border color on hover
-                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
+                color: "white",
+                "& fieldset": { borderColor: "white" },
+                "&:hover fieldset": { borderColor: "white" },
+                "&.Mui-focused fieldset": { borderColor: "white" },
               },
             }}
           />
@@ -69,10 +86,10 @@ const Login = () => {
                 "&.Mui-focused": { color: "white" },
               },
               "& .MuiOutlinedInput-root": {
-                color: "white", // Input text color
-                "& fieldset": { borderColor: "white" }, // Default border color
-                "&:hover fieldset": { borderColor: "white" }, // Border color on hover
-                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
+                color: "white",
+                "& fieldset": { borderColor: "white" },
+                "&:hover fieldset": { borderColor: "white" },
+                "&.Mui-focused fieldset": { borderColor: "white" },
               },
             }}
           />

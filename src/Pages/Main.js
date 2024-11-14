@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
+  const navigate = useNavigate();
+
+  // Function to handle sport selection and navigate to Booking page
+  const handleSportClick = (sportName) => {
+    navigate("/booking", { state: { sport: sportName } });
+  };
+
   return (
     <div className="main flex flex-col gap-3 p-3">
       <div className="search-bar flex flex-col justify-center items-start text-xl">
@@ -9,7 +17,7 @@ const Main = () => {
           like to book.
         </h1>
       </div>
-      <div className="sport-selector flex flex-row">
+      <div className="sport-selector flex flex-row flex-wrap">
         <div
           className="sport badminton flex flex-col justify-center items-center"
           style={{
@@ -18,6 +26,7 @@ const Main = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => handleSportClick("Badminton")}
         >
           <h1 className="w-full text-center text-white text-xl">Badminton</h1>
         </div>
@@ -29,6 +38,7 @@ const Main = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => handleSportClick("Table-Tennis")}
         >
           <h1 className="w-full text-center text-white text-xl">Table-Tennis</h1>
         </div>
@@ -40,6 +50,7 @@ const Main = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => handleSportClick("Squash")}
         >
           <h1 className="w-full text-center text-white text-xl">Squash</h1>
         </div>
@@ -50,6 +61,7 @@ const Main = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => handleSportClick("Pickleball")}
         >
           <h1 className="w-full text-center text-white text-xl">Pickleball</h1>
         </div>
@@ -61,6 +73,7 @@ const Main = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => handleSportClick("Pool")}
         >
           <h1 className="w-full text-center text-white text-xl">Pool</h1>
         </div>
@@ -72,6 +85,7 @@ const Main = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => handleSportClick("Chess")}
         >
           <h1 className="w-full text-center text-white text-xl">Chess</h1>
         </div>
@@ -83,6 +97,7 @@ const Main = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
+          onClick={() => handleSportClick("Darts")}
         >
           <h1 className="w-full text-center text-white text-xl">Darts</h1>
         </div>
